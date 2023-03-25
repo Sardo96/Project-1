@@ -4,8 +4,7 @@ const states = {
     JUMPING: 2,
     FALLING: 3,
     ROLLING: 4,
-    DIVING: 5,
-    HIT: 6
+    HIT: 5
 }
 
 class State {
@@ -131,7 +130,7 @@ export class Hit extends State {
     enter() {
         this.player.frameX = 0;
         this.player.maxFrame = 10;
-        //this.player.frameY = 4;
+        this.player.frameY = 4;
     }
 
     handleInput(input) {

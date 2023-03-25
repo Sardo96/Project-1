@@ -21,11 +21,16 @@ export class UI {
         for (let i = 0; i < this.game.lives; i++) {
             context.drawImage(this.livesImage, 25 * i + 20, 95, 25, 25);
         }
-        if (this.game.gameOver > 20) {
+        if (this.game.score >= 20) {
             context.textAlign = 'center';
             context.font = this.fontSize * 2 + 'px ' + this.fontFamily;
             context.fillText('GREAT!', this.game.width * 0.5, this.game.height * 0.5);
-        } 
+            this.game.gameOver = true;
+        } else if (this.game.gameOver) {
+            context.textAlign = 'center';
+            context.font = this.fontSize * 2 + 'px ' + this.fontFamily;
+            context.fillText('Loser!', this.game.width * 0.5, this.game.height * 0.5);
+        }
 
         context.restore()
     }
